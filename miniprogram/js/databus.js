@@ -3,11 +3,21 @@ import Pool from './base/pool'
 let instance
 
 /**
+ * 
+ */
+const gameStatus = {
+  BEGIN: 'summer',
+  OVER: 'winter',
+  PAUSE: 'spring',
+  AUTUMN: 'autumn'
+}
+
+/**
  * 全局状态管理器
  */
 export default class DataBus {
   constructor() {
-    if ( instance )
+    if (instance)
       return instance
 
     instance = this
@@ -18,12 +28,12 @@ export default class DataBus {
   }
 
   reset() {
-    this.frame      = 0
-    this.score      = 0
-    this.bullets    = []
-    this.enemys     = []
+    this.frame = 0
+    this.score = 0
+    this.bullets = []
+    this.enemys = []
     this.animations = []
-    this.gameOver   = false
+    this.gameOver = false
   }
 
   /**
